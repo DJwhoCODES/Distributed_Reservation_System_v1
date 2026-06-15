@@ -14,3 +14,4 @@ CREATE TABLE shows(
 
 CREATE INDEX idx_shows_movie_id ON shows(movie_id);
 CREATE INDEX idx_shows_start_time ON shows(start_time); 
+CREATE UNIQUE INDEX idx_shows_unique ON shows(movie_id, start_time);

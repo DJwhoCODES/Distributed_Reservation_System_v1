@@ -10,7 +10,7 @@ import (
 
 func New(cfg *configs.Config) (*pgxpool.Pool, error) {
 	dsn := fmt.Sprintf(
-		"postgres://%s:%s@%s:%s/%s",
+		"postgres://%s:%s@%s:%s/%s?sslmode=disable&prefer_simple_protocol=true",
 		cfg.PostgresUser,
 		cfg.PostgresPassword,
 		cfg.PostgresHost,
@@ -18,7 +18,14 @@ func New(cfg *configs.Config) (*pgxpool.Pool, error) {
 		cfg.PostgresDB,
 	)
 
-	return pgxpool.New(context.Background(), dsn)
+	fmt.Println(dsn)
+
+	config, err := pgxpool.ParseConfig(dsn)
+	if err != nil {
+		return nil, err
+	}
+
+	return pgxpool.NewWithConfig(context.Background(), config)
 }
 
 // dsn = data source name

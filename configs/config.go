@@ -33,11 +33,11 @@ func Load() *Config {
 	return &Config{
 		AppPort: getEnv("APP_PORT", "8000"),
 
-		PostgresHost:     getEnv("POSTGRES_HOST", "localhost"),
+		PostgresHost:     getEnv("POSTGRES_HOST", "127.0.0.1"),
 		PostgresPort:     getEnv("POSTGRES_PORT", "5432"),
 		PostgresUser:     getEnv("POSTGRES_USER", "postgres"),
 		PostgresPassword: getEnv("POSTGRES_PASSWORD", "postgres"),
-		PostgresDB:       getEnv("POSTGRES_DB", "ticketing"),
+		PostgresDB:       getEnv("POSTGRES_DB", "ticket-reservation"),
 
 		RedisAddr: getEnv("REDIS_ADDR", "localhost:6379"),
 

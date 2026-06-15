@@ -3,7 +3,7 @@ CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 CREATE TABLE movies (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 
-    title TEXT NOT NULL,
+    title TEXT NOT NULL UNIQUE,
     description TEXT,
     duration_mins INT NOT NULL CHECK (duration_mins > 0),
 
