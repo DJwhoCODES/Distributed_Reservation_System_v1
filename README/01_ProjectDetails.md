@@ -1,3 +1,15 @@
+## About
+
+- A distributed reservation system supporting
+- Real-time Seat Updates: WebSocket
+- Horizontal Scalability
+- PostgreSQL Persistence
+- Idempotency: Safe retries
+- Concurrency Protection: No double booking
+- Outbox Events: Outbox events are a way to reliably publish events when your application updates the database.
+
+---
+
 ## Tech Stack
 
 Language: Go
